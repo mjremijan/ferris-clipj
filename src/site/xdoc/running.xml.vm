@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document xmlns="http://maven.apache.org/XDOC/2.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/XDOC/2.0 http://maven.apache.org/xsd/xdoc-2.0.xsd">
+
+    <properties>
+        <title>Ferris Mouser</title>
+        <author email="mjremijan@yahoo.com">Michael Remijan</author>
+    </properties>
+
+    <body>
+        <section name="Running">
+            <p>
+                <b>Windows</b>
+            </p>
+            <p>
+                Open a DOS prompt to the <code>[MOUSER_HOME]/bin/</code> directory.
+            </p>
+            <p>
+                Execute <code>start_mouser.cmd</code>
+            </p>
+            <p>
+                The application will then start running in the background.
+            </p>
+            <p>
+                Happy mouse moving!
+            </p>
+        </section>
+    </body>
+</document>
