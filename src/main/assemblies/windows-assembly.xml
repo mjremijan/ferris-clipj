@@ -58,6 +58,15 @@
         </fileSet>
         
         <fileSet>
+            <directory>src/main/assemblies/zulu1.8.0_60-8.9.0.4-win64/jre</directory>
+            <outputDirectory>jre</outputDirectory>
+            <includes>
+                <include>**</include>
+            </includes>
+            <filtered>false</filtered>
+        </fileSet>
+        
+        <fileSet>
             <directory>src/main/assemblies/logs</directory>
             <outputDirectory>logs</outputDirectory>
             <includes>
