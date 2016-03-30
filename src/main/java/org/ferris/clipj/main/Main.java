@@ -2,23 +2,24 @@ package org.ferris.clipj.main;
 
 import java.awt.AWTException;
 import java.awt.Image;
-import java.awt.PopupMenu;
 import java.awt.SystemTray;
 import java.awt.Toolkit;
 import java.awt.TrayIcon;
 import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.DataFlavor;
 import java.awt.datatransfer.Transferable;
-import java.awt.datatransfer.UnsupportedFlavorException;
-import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
+import javax.enterprise.inject.spi.CDI;
+import javax.inject.Inject;
 import javax.swing.JOptionPane;
+import org.apache.log4j.Logger;
 import org.ferris.clipj.about.About;
-import org.ferris.clipj.about.AboutMenuItem;
-import org.ferris.clipj.exit.ExitMenuItem;
+import org.ferris.clipj.menu.ClipboardHistoryMenu;
 
 /**
  * The main() method for this application
@@ -26,12 +27,19 @@ import org.ferris.clipj.exit.ExitMenuItem;
  * @author <a href="mailto:mjremijan@yahoo.com">Mike Remijan</a>
  */
 public class Main {
-
-    /**
-     * @param args
-     */
     public static void main(String[] args) {
-        main = new Main();
+        CDI<Object> cdi = CDI.getCDIProvider().initialize();
+        
+        Main main
+            = cdi.select(Main.class).get();
+        main.main(Arrays.asList(args));
+    }
+    
+    @Inject
+    protected Logger log;
+    
+    protected void main(List<String> args) {
+        log.info("Welcome to ClipJ!");
     }
 
     private static Main main;
@@ -70,21 +78,28 @@ public class Main {
 
             @Override
             public void run() {
-                Clipboard clip = Toolkit.getDefaultToolkit().getSystemClipboard();
-                System.out.println("--------------------------");
-                System.out.println("Object Name: " + clip.getName());
-                Transferable contents = clip.getContents(null);
-                if (contents == null) {
-                    System.out.println("The clipboard is empty.");
-                } else {
+                try {                    
+                    Clipboard clip 
+                        = Toolkit.getDefaultToolkit().getSystemClipboard();
 
+                    Transferable contents 
+                        = clip.getContents(null);
+
+                    if (contents != null) {
+                        
+                        if (contents.isDataFlavorSupported(DataFlavor.stringFlavor)) {
+                            String str
+                                = (String)contents.getTransferData(DataFlavor.stringFlavor);
+                            ((ClipboardHistoryMenu)trayIcon.getPopupMenu()).addString(str);
+                        }
+                        else
+                        if (contents.isDataFlavorSupported(DataFlavor.imageFlavor)) {
+                            Image img
+                                = (Image)contents.getTransferData(DataFlavor.imageFlavor);
+                        }
+                    }
+                } catch (Exception e) {
                 }
-                try {
-                    System.out.println(contents.getTransferData(DataFlavor.stringFlavor));
-                } catch (UnsupportedFlavorException ex) {
-                } catch (IOException ex) {
-                }
-                System.out.println("==========================");
             }
         }
 
@@ -104,21 +119,9 @@ public class Main {
 
     private TrayIcon getMyTrayIcon() {
         if (myTrayIcon == null) {
-            myTrayIcon = new TrayIcon(getImage(), "ClipJ", getPopupMenu());
+            myTrayIcon = new TrayIcon(getImage(), "ClipJ", new ClipboardHistoryMenu());
         }
         myTrayIcon.addActionListener(e -> System.out.println("clicked on clipj"));
         return myTrayIcon;
-    }
-
-    private PopupMenu popupMenu;
-
-    private PopupMenu getPopupMenu() {
-        PopupMenu popup = new PopupMenu();
-        {
-            popup.addSeparator();
-            popup.add(new AboutMenuItem());
-            popup.add(new ExitMenuItem());
-        }
-        return popup;
     }
 }

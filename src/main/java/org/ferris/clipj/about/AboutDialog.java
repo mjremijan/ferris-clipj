@@ -41,7 +41,7 @@ public class AboutDialog extends JDialog
 	private void initialize() {
 		this.setSize(385, 325);
 		this.setContentPane(getJContentPane());
-		this.setTitle("About");
+		this.setTitle("Ferris ClipJ");
 		this.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 		this.setLocationRelativeTo(null);
 	}
@@ -213,10 +213,6 @@ public class AboutDialog extends JDialog
 			);
 		}
 		return closeButton;
-	}
-
-	public static void main(String[] args) {
-		new AboutDialog(null).setVisible(true);
 	}
 
 	private Icon icon;

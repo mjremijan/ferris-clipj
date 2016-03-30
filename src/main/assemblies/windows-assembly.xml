@@ -20,7 +20,7 @@
         
     <fileSets>
         <fileSet>
-            <directory>src/main/assemblies/cmd</directory>
+            <directory>src/main/assemblies/bin</directory>
             <outputDirectory>bin</outputDirectory>
             <includes>
                 <include>*.cmd</include>
@@ -30,11 +30,41 @@
         </fileSet>
         
         <fileSet>
+            <directory>src/main/assemblies/conf</directory>
+            <outputDirectory>conf</outputDirectory>
+            <includes>
+                <include>**/*</include>
+            </includes>
+            <filtered>false</filtered>
+            <lineEnding>windows</lineEnding>
+        </fileSet>
+        
+        <fileSet>
+            <directory>src/main/assemblies/data</directory>
+            <outputDirectory>data</outputDirectory>
+            <includes>
+                <include>**/*</include>
+            </includes>
+            <filtered>false</filtered>
+            <lineEnding>windows</lineEnding>
+        </fileSet>
+        
+        <fileSet>
             <directory>target/site</directory>
             <outputDirectory>docs</outputDirectory>
             <includes>
                 <include>**</include>
             </includes>
+        </fileSet>
+        
+        <fileSet>
+            <directory>src/main/assemblies/logs</directory>
+            <outputDirectory>logs</outputDirectory>
+            <includes>
+                <include>**/*</include>
+            </includes>
+            <filtered>false</filtered>
+            <lineEnding>windows</lineEnding>
         </fileSet>
     </fileSets>
     
