@@ -84,15 +84,4 @@ public class Main {
 //
 //        timer.schedule(new MyTimerTask(), 0, 1000 * 2);
 //    }
-//
-//    private Image image;
-//
-//    private Image getImage() {
-//        if (image == null) {
-//            image = Toolkit.getDefaultToolkit().createImage(getClass().getResource("/tray.png"));
-//        }
-//        return image;
-//    }
-//
-
 }

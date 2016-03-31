@@ -1,8 +1,10 @@
 package org.ferris.clipj.window.tray;
 
+import java.awt.Image;
 import java.awt.TrayIcon;
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.inject.Produces;
+import org.ferris.clipj.window.image.qualifier.Tray;
 
 /**
  *
@@ -11,14 +13,8 @@ import javax.enterprise.inject.Produces;
 @ApplicationScoped
 public class TrayIconProducer {
 
-    private TrayIcon trayIcon;
-    
     @Produces
-    public TrayIcon produceTrayIcon() {
-        if (trayIcon == null) {
-            trayIcon = new TrayIcon(getImage(), "ClipJ", new ClipboardHistoryMenu());
-        }
-        trayIcon.addActionListener(e -> System.out.println("clicked on clipj"));
-        return myTrayIcon;
+    public TrayIcon produceTrayIcon(@Tray Image image) {
+        return new TrayIcon(image);
     }
 }
