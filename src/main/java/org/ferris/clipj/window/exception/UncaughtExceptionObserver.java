@@ -23,7 +23,7 @@ public class UncaughtExceptionObserver implements UncaughtExceptionHandler {
     protected Logger log;
 
     @Inject
-    protected UncaughtExceptionView uncaughtExceptionPage;
+    protected UncaughtExceptionView uncaughtExceptionView;
 
     @Inject
     protected Event<ExitEvent> exitEvent;
@@ -37,7 +37,7 @@ public class UncaughtExceptionObserver implements UncaughtExceptionHandler {
 
     @Override
     public void uncaughtException(Thread t, Throwable e) {
-        uncaughtExceptionPage.view(e);
+        uncaughtExceptionView.view(e);
         exitEvent.fire(new ExitEvent());
     }
 }

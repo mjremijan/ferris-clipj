@@ -6,4 +6,6 @@ package org.ferris.clipj.window.main;
  */
 public class StartupEvent {
     public static final int EXCEPTION = 10;
+    
+    public static final int TRAY = 10;
 }

@@ -46,11 +46,7 @@ public class Main {
 //        // add the tray image
 //        try {
 //            tray.add(trayIcon);
-//            trayIcon.displayMessage(
-//                "Heee-haw!", String.format(
-//                    "Ferris ClipJ %s", new About().getVersion()
-//                ), TrayIcon.MessageType.NONE
-//            );
+//            
 //        } catch (AWTException e) {
 //        }
 //
