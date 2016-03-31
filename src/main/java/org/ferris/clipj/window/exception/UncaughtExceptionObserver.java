@@ -9,7 +9,7 @@ import javax.inject.Inject;
 import org.apache.log4j.Logger;
 import org.ferris.clipj.window.exit.ExitEvent;
 import org.ferris.clipj.window.main.StartupEvent;
-import static org.ferris.clipj.window.main.StartupEvent.EXCEPTION;
+import static org.ferris.clipj.window.main.StartupEvent.STARTUP_EXCEPTION_HANDLING;
 import org.jboss.weld.experimental.Priority;
 
 /**
@@ -29,9 +29,9 @@ public class UncaughtExceptionObserver implements UncaughtExceptionHandler {
     protected Event<ExitEvent> exitEvent;
 
     public void observes(
-        @Observes @Priority(EXCEPTION) StartupEvent event
+        @Observes @Priority(STARTUP_EXCEPTION_HANDLING) StartupEvent event
     ) {
-        log.info("Setting default uncaught exception handler");
+        log.info("ENTER");
         setDefaultUncaughtExceptionHandler(this);
     }
 

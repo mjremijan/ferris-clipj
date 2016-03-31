@@ -5,8 +5,8 @@ import java.awt.Toolkit;
 import java.net.URL;
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.inject.Produces;
-import org.ferris.clipj.window.image.qualifier.About;
-import org.ferris.clipj.window.image.qualifier.Tray;
+import org.ferris.clipj.window.image.qualifier.TrayImage;
+import org.ferris.clipj.window.image.qualifier.AboutImage;
 
 /**
  *
@@ -31,7 +31,7 @@ public class ImageProducer {
     }
     
     
-    @Produces @Tray
+    @Produces @TrayImage
     public Image produceTrayImage() {
         return 
             Toolkit.getDefaultToolkit().createImage(
@@ -40,7 +40,7 @@ public class ImageProducer {
     }
     
     
-    @Produces @About
+    @Produces @AboutImage
     public Image produceAboutImage() {
         return 
             Toolkit.getDefaultToolkit().createImage(

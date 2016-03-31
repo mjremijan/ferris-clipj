@@ -34,15 +34,7 @@ public class Main {
         startupEvent.fire(new StartupEvent());
     }
 
-//    private static Main main;
-//
 //    private Main() {
-//        // get the SystemTray instance
-//        SystemTray tray = SystemTray.getSystemTray();
-//
-//        // construct a TrayIcon
-//        TrayIcon trayIcon = getMyTrayIcon();
-//
 //        // add the tray image
 //        try {
 //            tray.add(trayIcon);
