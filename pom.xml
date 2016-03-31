@@ -149,7 +149,7 @@
                         <addMavenDescriptor>false</addMavenDescriptor>
                         <manifest>
                             <addClasspath>true</addClasspath>                            
-                            <mainClass>org.ferris.clipj.console.main.Main</mainClass>
+                            <mainClass>org.ferris.clipj.window.main.Main</mainClass>
                             <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
                         </manifest>    
                     </archive>

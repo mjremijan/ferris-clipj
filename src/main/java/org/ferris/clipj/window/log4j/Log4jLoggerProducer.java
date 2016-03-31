@@ -1,4 +1,4 @@
-package org.ferris.clipj.console.log4j;
+package org.ferris.clipj.window.log4j;
 
 import javax.enterprise.inject.Produces;
 import javax.enterprise.inject.spi.InjectionPoint;

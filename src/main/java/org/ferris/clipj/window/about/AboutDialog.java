@@ -1,4 +1,4 @@
-package org.ferris.clipj.console.about;
+package org.ferris.clipj.window.about;
 
 import java.awt.BorderLayout;
 import java.awt.Frame;

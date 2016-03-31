@@ -1,4 +1,4 @@
-package org.ferris.clipj.console.log4j;
+package org.ferris.clipj.window.log4j;
 
 import java.io.File;
 import java.net.URI;

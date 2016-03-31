@@ -1,7 +1,8 @@
-package org.ferris.clipj.console.main;
+package org.ferris.clipj.window.main;
 
 import java.util.Arrays;
 import java.util.List;
+import javax.enterprise.event.Event;
 import javax.enterprise.inject.spi.CDI;
 import javax.inject.Inject;
 import org.apache.log4j.Logger;
@@ -23,22 +24,19 @@ public class Main {
     @Inject
     protected Logger log;
     
+    @Inject
+    protected Event<StartupEvent> startupEvent;
+    
     protected void main(List<String> args) {
         log.info("Welcome to ClipJ!");
+        
+        log.info("Fire StartupEvent");
+        startupEvent.fire(new StartupEvent());
     }
 
 //    private static Main main;
 //
 //    private Main() {
-//        Thread.setDefaultUncaughtExceptionHandler((t, e) -> {
-//            StringWriter sw = new StringWriter();
-//            PrintWriter pw = new PrintWriter(sw);
-//            e.printStackTrace(pw);
-//            sw.toString();
-//            JOptionPane.showMessageDialog(null, sw.toString(), "Opps :(", JOptionPane.ERROR_MESSAGE);
-//            System.exit(1);
-//        });
-//
 //        // get the SystemTray instance
 //        SystemTray tray = SystemTray.getSystemTray();
 //

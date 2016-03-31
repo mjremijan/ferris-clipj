@@ -1,4 +1,4 @@
-package org.ferris.clipj.console.menu;
+package org.ferris.clipj.window.menu;
 
 import java.awt.Font;
 import java.awt.MenuItem;

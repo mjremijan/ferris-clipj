@@ -1,10 +1,10 @@
-package org.ferris.clipj.console.menu;
+package org.ferris.clipj.window.menu;
 
 import java.awt.PopupMenu;
 import java.util.HashSet;
 import java.util.Set;
-import org.ferris.clipj.console.about.AboutMenuItem;
-import org.ferris.clipj.console.exit.ExitMenuItem;
+import org.ferris.clipj.window.about.AboutMenuItem;
+import org.ferris.clipj.window.exit.ExitMenuItem;
 
 /**
  *
