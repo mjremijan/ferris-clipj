@@ -94,13 +94,5 @@ public class Main {
 //        return image;
 //    }
 //
-//    private TrayIcon myTrayIcon;
-//
-//    private TrayIcon getMyTrayIcon() {
-//        if (myTrayIcon == null) {
-//            myTrayIcon = new TrayIcon(getImage(), "ClipJ", new ClipboardHistoryMenu());
-//        }
-//        myTrayIcon.addActionListener(e -> System.out.println("clicked on clipj"));
-//        return myTrayIcon;
-//    }
+
 }
