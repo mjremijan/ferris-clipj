@@ -1,20 +1,21 @@
-package org.ferris.clipj.window.menu;
+package org.ferris.clipj.window.tray;
 
 import java.awt.PopupMenu;
 import java.util.HashSet;
 import java.util.Set;
 import org.ferris.clipj.window.about.AboutMenuItem;
 import org.ferris.clipj.window.exit.ExitMenuItem;
+import org.ferris.clipj.window.menu.StringMenuItem;
 
 /**
  *
  * @author Michael Remijan mjremijan@yahoo.com @mjremijan
  */
-public class ClipboardHistoryMenu extends PopupMenu {
+public class TrayPopupMenu extends PopupMenu {
 
     Set<String> uniqueStrings;        
     
-    public ClipboardHistoryMenu() {
+    public TrayPopupMenu() {
         super();
         add(new AboutMenuItem());
         add(new ExitMenuItem());

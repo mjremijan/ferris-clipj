@@ -14,9 +14,10 @@ import org.ferris.clipj.window.image.qualifier.TrayImage;
 @ApplicationScoped
 public class TrayIconProducer {
     @Produces
-    public TrayIcon produceTrayIcon(@TrayImage Image image, About about) {
+    public TrayIcon produceTrayIcon(@TrayImage Image image, About about, TrayPopupMenu popupMenu) {
         TrayIcon ti = new TrayIcon(image);
         ti.setToolTip(String.format("Ferris ClipJ (%s)", about.getVersion()));
+        ti.setPopupMenu(popupMenu);
         return ti;
     }
 }
