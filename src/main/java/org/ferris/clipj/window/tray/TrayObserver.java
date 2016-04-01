@@ -23,6 +23,6 @@ public class TrayObserver {
     
     public void observes(@Observes @Priority(STARTUP_TRAY) StartupEvent event) {
         log.info("ENTER");
-        view.startup();
+        view.startup();        
     }
 }

@@ -111,10 +111,10 @@ public class AboutDialog extends JDialog
 	}
 
 	private String getAboutText()
-	{
-		About about
-            = new About();
-
+	{      
+        About about
+            = new About(null, null, null, null, null, null, null, null);
+        
         StringBuilder sp
             = new StringBuilder();
 

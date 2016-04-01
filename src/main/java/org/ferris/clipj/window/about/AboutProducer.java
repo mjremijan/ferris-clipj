@@ -41,17 +41,16 @@ public class AboutProducer {
             throw new RuntimeException(e);
         }
         
-        About about = new About();
-        {
-            about.setTitle(attributes.getValue("Implementation-Title"));
-            about.setVersion(attributes.getValue("Implementation-Version"));
-            about.setUrl(attributes.getValue("Implementation-URL"));
-            about.setBuildJdk(attributes.getValue("Build-Jdk"));
-            about.setCreatedBy(attributes.getValue("Created-By"));
-            about.setCreatedOn(attributes.getValue("Build-Time"));
-            about.setVendorId(attributes.getValue("Implementation-Vendor-Id"));
-            about.setVendor(attributes.getValue("Implementation-Vendor"));
-        }
+        About about = new About(
+            attributes.getValue("Implementation-Title")
+            ,attributes.getValue("Implementation-Version")
+            ,attributes.getValue("Implementation-Vendor-Id")
+            ,attributes.getValue("Build-Jdk")
+            ,attributes.getValue("Implementation-Vendor")
+            ,attributes.getValue("Implementation-URL")
+            ,attributes.getValue("Created-By")
+            ,attributes.getValue("Build-Time")
+        );
         return about;
     }
 }

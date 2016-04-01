@@ -1,15 +1,11 @@
 package org.ferris.clipj.window.tray;
 
 import java.awt.AWTException;
-import java.awt.Image;
 import java.awt.SystemTray;
 import java.awt.TrayIcon;
 import javax.enterprise.context.ApplicationScoped;
-import javax.enterprise.inject.Produces;
 import javax.inject.Inject;
 import org.apache.log4j.Logger;
-import org.ferris.clipj.window.about.About;
-import org.ferris.clipj.window.image.qualifier.TrayImage;
 
 /**
  *
@@ -24,16 +20,6 @@ public class TrayView {
     @Inject
     protected TrayIcon trayIcon;
     
-    @Inject
-    protected About about;
-    
-    @Produces
-    public TrayIcon produceTrayIcon(@TrayImage Image image) {
-        TrayIcon ti = new TrayIcon(image);
-        ti.setToolTip(String.format("ClipJ (%s)", about.getVersion()));
-        return ti;
-    }
-
     public void startup() {
         log.info("ENTER");
         
