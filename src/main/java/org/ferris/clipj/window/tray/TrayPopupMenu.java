@@ -3,6 +3,8 @@ package org.ferris.clipj.window.tray;
 import java.awt.PopupMenu;
 import java.util.HashSet;
 import java.util.Set;
+import javax.enterprise.context.ApplicationScoped;
+import javax.inject.Inject;
 import org.ferris.clipj.window.about.AboutMenuItem;
 import org.ferris.clipj.window.exit.ExitMenuItem;
 import org.ferris.clipj.window.menu.StringMenuItem;
@@ -11,14 +13,17 @@ import org.ferris.clipj.window.menu.StringMenuItem;
  *
  * @author Michael Remijan mjremijan@yahoo.com @mjremijan
  */
+@ApplicationScoped
 public class TrayPopupMenu extends PopupMenu {
 
-    Set<String> uniqueStrings;        
-    
-    public TrayPopupMenu() {
+    private Set<String> uniqueStrings;    
+
+    @Inject
+    public TrayPopupMenu(ExitMenuItem exitMenuItem, AboutMenuItem aboutMenuItem) {
         super();
-        add(new AboutMenuItem());
-        add(new ExitMenuItem());
+        
+        add(aboutMenuItem);
+        add(exitMenuItem);
         addSeparator();
         
         uniqueStrings

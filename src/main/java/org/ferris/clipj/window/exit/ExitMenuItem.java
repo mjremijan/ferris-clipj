@@ -4,6 +4,7 @@ import java.awt.MenuItem;
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.event.Event;
 import javax.inject.Inject;
+import org.ferris.clipj.window.exit.ExitEvent;
 
 /**
  *
