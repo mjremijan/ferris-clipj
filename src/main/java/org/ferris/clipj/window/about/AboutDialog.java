@@ -24,12 +24,14 @@ public class AboutDialog extends JDialog
 {
 	private static final long serialVersionUID = 1L;
 	private JPanel jContentPane = null;
+    private About about;
 
-	/**
-	 * @param owner
+    /**
+	 * @param about
 	 */
-	public AboutDialog(Frame owner) {
-		super(owner);
+	public AboutDialog(About about) {
+		super((Frame)null);
+        this.about = about;
 		initialize();
 	}
 
@@ -42,7 +44,7 @@ public class AboutDialog extends JDialog
 		this.setSize(385, 325);
 		this.setContentPane(getJContentPane());
 		this.setTitle("Ferris ClipJ");
-		this.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+		this.setDefaultCloseOperation(JDialog.HIDE_ON_CLOSE);
 		this.setLocationRelativeTo(null);
 	}
 
@@ -111,10 +113,7 @@ public class AboutDialog extends JDialog
 	}
 
 	private String getAboutText()
-	{      
-        About about
-            = new About(null, null, null, null, null, null, null, null);
-        
+	{
         StringBuilder sp
             = new StringBuilder();
 
