@@ -2,7 +2,7 @@
 # Lines starting with a # are considered a comment and are not read by the
 # application.  
 #
-# When you double-click the application's system tray icon, the contents of 
-# this file are read and read and automatically put onto the clipboard.
+# When you double-click the application's system tray icon, the contents
+# of this file are read and automatically put onto the clipboard.
 #
 I've been double-clicked.

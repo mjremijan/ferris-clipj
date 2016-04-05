@@ -11,10 +11,8 @@ import org.ferris.clipj.window.exit.ExitMenuItem;
  */
 @ApplicationScoped
 public class TrayPopupMenuProducer {
-
     @Produces
     public TrayPopupMenu produce(ExitMenuItem exitMenuItem, AboutMenuItem aboutMenuItem) {
         return new TrayPopupMenu(exitMenuItem, aboutMenuItem);
     }
-
 }
