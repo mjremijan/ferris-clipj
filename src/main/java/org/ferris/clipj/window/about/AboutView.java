@@ -1,7 +1,6 @@
 package org.ferris.clipj.window.about;
 
 import javax.annotation.PostConstruct;
-import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import org.apache.log4j.Logger;
 
@@ -9,7 +8,6 @@ import org.apache.log4j.Logger;
  *
  * @author Michael Remijan mjremijan@yahoo.com @mjremijan
  */
-@ApplicationScoped
 public class AboutView {
 
     @Inject

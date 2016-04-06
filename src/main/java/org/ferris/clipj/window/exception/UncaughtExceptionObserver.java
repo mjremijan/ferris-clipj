@@ -2,7 +2,6 @@ package org.ferris.clipj.window.exception;
 
 import java.lang.Thread.UncaughtExceptionHandler;
 import static java.lang.Thread.setDefaultUncaughtExceptionHandler;
-import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.event.Event;
 import javax.enterprise.event.Observes;
 import javax.inject.Inject;
@@ -16,7 +15,6 @@ import org.jboss.weld.experimental.Priority;
  *
  * @author Michael Remijan mjremijan@yahoo.com @mjremijan
  */
-@ApplicationScoped
 public class UncaughtExceptionObserver implements UncaughtExceptionHandler {
 
     @Inject

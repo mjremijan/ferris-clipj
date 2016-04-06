@@ -2,7 +2,6 @@ package org.ferris.clipj.window.exception;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;
-import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.swing.JOptionPane;
 import org.apache.log4j.Logger;
@@ -11,7 +10,6 @@ import org.apache.log4j.Logger;
  *
  * @author Michael Remijan mjremijan@yahoo.com @mjremijan
  */
-@ApplicationScoped
 public class UncaughtExceptionView {
 
     @Inject

@@ -4,10 +4,8 @@ import java.io.File;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
-import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.inject.Produces;
 
-@ApplicationScoped
 public class ApplicationDirectoryProducer {
 
     @Produces
@@ -20,7 +18,7 @@ public class ApplicationDirectoryProducer {
         //      ferris-tweial-app-1.0.0.0-SNAPSHOT.jar
         //    /logs
         //
-        // So the the application directory will be 1 
+        // So the the application directory will be 1
         // directory up from where the JAR file is located.
         URL jarURL = ApplicationDirectory.class.getProtectionDomain().getCodeSource().getLocation();
         URI jarURI = jarURL.toURI();

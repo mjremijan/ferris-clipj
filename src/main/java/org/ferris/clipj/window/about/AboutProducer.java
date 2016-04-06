@@ -6,14 +6,12 @@ import java.net.URL;
 import java.util.jar.Attributes;
 import java.util.jar.JarFile;
 import java.util.jar.Manifest;
-import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.inject.Produces;
 
 /**
  *
  * @author Michael Remijan mjremijan@yahoo.com @mjremijan
  */
-@ApplicationScoped
 public class AboutProducer {
 
     @Produces
@@ -22,7 +20,7 @@ public class AboutProducer {
         //    URL: jar:file:/C:/Users/Michael/..../jboss-annotations-api_1.2_spec-1.0.0.Final.jar!/META-INF/MANIFEST.MF
         //
         // This is what the jarURL returns above
-        // jarURL:     file:/C:/Users/Michael/..../ferris-riviera-2.0.0.0-SNAPSHOT-windows.jar    
+        // jarURL:     file:/C:/Users/Michael/..../ferris-riviera-2.0.0.0-SNAPSHOT-windows.jar
         Attributes attributes
             = new Attributes();
 
@@ -40,7 +38,7 @@ public class AboutProducer {
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
-        
+
         About about = new About(
             attributes.getValue("Implementation-Title")
             ,attributes.getValue("Implementation-Version")

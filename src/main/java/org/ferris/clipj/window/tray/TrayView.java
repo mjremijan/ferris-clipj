@@ -5,7 +5,6 @@ import java.awt.Image;
 import java.awt.SystemTray;
 import java.awt.TrayIcon;
 import javax.annotation.PostConstruct;
-import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import org.apache.log4j.Logger;
 import org.ferris.clipj.window.about.About;
@@ -15,7 +14,6 @@ import org.ferris.clipj.window.image.qualifier.TrayImage;
  *
  * @author Michael Remijan mjremijan@yahoo.com @mjremijan
  */
-@ApplicationScoped
 public class TrayView {
 
     @Inject
