@@ -3,9 +3,11 @@ package org.ferris.clipj.window.tray;
 import javax.enterprise.event.Observes;
 import javax.inject.Inject;
 import org.apache.log4j.Logger;
+import org.ferris.clipj.window.history.HistoryEvent;
 import org.ferris.clipj.window.main.StartupEvent;
-import static org.ferris.clipj.window.main.StartupEvent.STARTUP_TRAY;
+import static org.ferris.clipj.window.main.StartupEvent.STARTUP_GUI;
 import org.jboss.weld.experimental.Priority;
+
 
 /**
  *
@@ -19,8 +21,13 @@ public class TrayObserver {
     @Inject
     protected TrayView view;
 
-    public void observes(@Observes @Priority(STARTUP_TRAY) StartupEvent event) {
+    public void startupGui(@Observes @Priority(STARTUP_GUI) StartupEvent event) {
         log.info("ENTER");
         view.startup();
+    }
+    
+    public void historyHasNewItem(@Observes HistoryEvent event) {
+        log.info("ENTER");
+        view.viewNewHistoryItem(event.getNewHistoryItem());
     }
 }

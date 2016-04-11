@@ -1,19 +1,23 @@
 package org.ferris.clipj.window.tray;
 
 import java.awt.AWTException;
-import java.awt.Image;
 import java.awt.SystemTray;
 import java.awt.TrayIcon;
 import javax.annotation.PostConstruct;
+import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import org.apache.log4j.Logger;
 import org.ferris.clipj.window.about.About;
-import org.ferris.clipj.window.image.qualifier.TrayImage;
+import org.ferris.clipj.window.about.AboutMenuItem;
+import org.ferris.clipj.window.exit.ExitMenuItem;
+import org.ferris.clipj.window.history.History;
+import org.ferris.clipj.window.history.HistoryHandler;
 
 /**
  *
  * @author Michael Remijan mjremijan@yahoo.com @mjremijan
  */
+@ApplicationScoped
 public class TrayView {
 
     @Inject
@@ -21,21 +25,42 @@ public class TrayView {
 
     @Inject
     protected About about;
-
-    @Inject
-    @TrayImage
-    protected Image image;
-
+    
     @Inject
     protected TrayPopupMenu popupMenu;
+    
+    @Inject
+    protected ExitMenuItem exitMenuItem;
+    
+    @Inject
+    protected AboutMenuItem aboutMenuItem;
 
+    @Inject
     protected TrayIcon trayIcon;
-
+    
+    @Inject
+    protected HistoryHandler historyHandler;
+    
     @PostConstruct
     public void putTheUiTogether() {
-        trayIcon = new TrayIcon(image);
+        log.info("ENTER");
+        
+        popupMenu.add(aboutMenuItem);
+        popupMenu.add(exitMenuItem);
+        popupMenu.addSeparator();
+        
+        History history
+            = historyHandler.getHistory();
+        
+        if (! history.getItems().isEmpty()) {
+            history.getItems().forEach(
+                hi -> popupMenu.addString(hi.getValue())
+            );
+        }
+        
         trayIcon.setToolTip(String.format("Ferris ClipJ (%s)", about.getVersion()));
         trayIcon.setPopupMenu(popupMenu);
+        
         //trayIcon.addActionListener(e -> System.out.println("clicked on clipj"));
     }
 
@@ -50,6 +75,11 @@ public class TrayView {
         } catch (AWTException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    void viewNewHistoryItem(String newHistoryItem) {
+        log.info("ENTER");
+        popupMenu.addString(newHistoryItem);
     }
 
 }

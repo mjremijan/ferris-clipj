@@ -26,7 +26,7 @@ public class UncaughtExceptionObserver implements UncaughtExceptionHandler {
     @Inject
     protected Event<ExitEvent> exitEvent;
 
-    public void observes(
+    public void setTheDefaultUncaughtExceptionHandler(
         @Observes @Priority(STARTUP_EXCEPTION_HANDLING) StartupEvent event
     ) {
         log.info("ENTER");

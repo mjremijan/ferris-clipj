@@ -33,47 +33,4 @@ public class Main {
         log.info("Fire StartupEvent");
         startupEvent.fire(new StartupEvent());
     }
-
-//    private Main() {
-//        // add the tray image
-//        try {
-//            tray.add(trayIcon);
-//            
-//        } catch (AWTException e) {
-//        }
-//
-//        Timer timer
-//            = new Timer();
-//
-//        class MyTimerTask extends TimerTask {
-//
-//            @Override
-//            public void run() {
-//                try {                    
-//                    Clipboard clip 
-//                        = Toolkit.getDefaultToolkit().getSystemClipboard();
-//
-//                    Transferable contents 
-//                        = clip.getContents(null);
-//
-//                    if (contents != null) {
-//                        
-//                        if (contents.isDataFlavorSupported(DataFlavor.stringFlavor)) {
-//                            String str
-//                                = (String)contents.getTransferData(DataFlavor.stringFlavor);
-//                            ((ClipboardHistoryMenu)trayIcon.getPopupMenu()).addString(str);
-//                        }
-//                        else
-//                        if (contents.isDataFlavorSupported(DataFlavor.imageFlavor)) {
-//                            Image img
-//                                = (Image)contents.getTransferData(DataFlavor.imageFlavor);
-//                        }
-//                    }
-//                } catch (Exception e) {
-//                }
-//            }
-//        }
-//
-//        timer.schedule(new MyTimerTask(), 0, 1000 * 2);
-//    }
 }

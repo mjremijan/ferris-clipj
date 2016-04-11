@@ -1,5 +1,6 @@
 package org.ferris.clipj.window.history;
 
+import java.util.LinkedList;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -15,7 +16,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class History {
 
     @XmlElement(name="Item")
-    private List<HistoryItem> items;
+    private List<HistoryItem> items = new LinkedList<>();
 
     public List<HistoryItem> getItems() {
         return items;

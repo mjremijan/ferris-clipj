@@ -6,5 +6,6 @@ package org.ferris.clipj.window.main;
  */
 public class StartupEvent {
     public static final int STARTUP_EXCEPTION_HANDLING  = 10;
-    public static final int STARTUP_TRAY                = 20;
+    public static final int STARTUP_GUI                 = 20;
+    public static final int STARTUP_TIMER_TASK          = 30;
 }

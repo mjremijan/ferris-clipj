@@ -1,11 +1,15 @@
 package org.ferris.clipj.window.history;
 
+import java.util.List;
+import javax.enterprise.event.Event;
 import javax.inject.Inject;
 import javax.xml.bind.JAXBContext;
 import static javax.xml.bind.JAXBContext.newInstance;
 import javax.xml.bind.JAXBException;
+import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 import org.apache.log4j.Logger;
+import org.ferris.clipj.window.configuration.PreferenceKey;
 
 
 /**
@@ -18,20 +22,67 @@ public class HistoryHandler {
     protected Logger log;
     
     @Inject
+    protected Event<HistoryEvent> historyEvent;
+    
+    @Inject
     protected HistoryXmlFile historyXmlFile;
     
-    protected History getHistory() throws JAXBException {
+    @Inject @PreferenceKey("MaxHistorySize")
+    protected Integer maxHistorySize;
+    
+    public synchronized History getHistory() {
         log.info("ENTER");
-        JAXBContext context
-            = newInstance(History.class);
-        Unmarshaller unmarshaller
-            = context.createUnmarshaller();
+        
+        try {
+            JAXBContext context
+                = newInstance(History.class);
 
-        log.debug(String.format("Unmarshalling history file %s", historyXmlFile.getAbsolutePath()));
-        History history
-            = (History) unmarshaller.unmarshal(historyXmlFile);
-        
-        return history;
-        
+            Unmarshaller unmarshaller
+                = context.createUnmarshaller();
+
+            log.info(String.format("Unmarshalling history file %s", historyXmlFile.getAbsolutePath()));
+            History history
+                = (History) unmarshaller.unmarshal(historyXmlFile);
+
+            return history;        
+        } catch (JAXBException e) {
+            throw new RuntimeException(e);
+        }
     }   
+    
+    public synchronized void addToHistory(String newHistoryItem) {
+        log.info("ENTER");
+        
+        try {
+            History history
+                = getHistory();
+
+            List<HistoryItem> items
+                = history.getItems();
+
+            if (!items.contains(newHistoryItem)) 
+            {
+                items.add(0, new HistoryItem(newHistoryItem));        
+            
+                if (items.size() > maxHistorySize) {            
+                    items.remove(items.size() - 1);
+                }
+                
+                history.setItems(items);
+                
+                JAXBContext context
+                    = newInstance(History.class);
+
+                Marshaller marshaller = context.createMarshaller();
+                marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
+
+                log.info(String.format("Marshalling %d itmes to history file %s", items.size(), historyXmlFile.getAbsolutePath()));
+                marshaller.marshal(history, historyXmlFile);
+
+                historyEvent.fire(new HistoryEvent(newHistoryItem));
+            }
+        } catch (JAXBException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

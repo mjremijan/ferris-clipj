@@ -14,7 +14,13 @@ import javax.xml.bind.annotation.XmlValue;
 public class HistoryItem {
 
     @XmlValue
-    private String value;
+    private String value;        
+    
+    public HistoryItem(){}
+    
+    public HistoryItem(String value) {
+        setValue(value);
+    }
 
     public String getValue() {
         return value;

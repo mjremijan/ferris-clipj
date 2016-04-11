@@ -147,22 +147,22 @@ public class AboutDialog extends JDialog
                 {
                     sp.append("<tr>");
                     {
-                        sp.append(String.format("<td>Created by:</td><td>%s</td>", about.getVendorId()));
+                        sp.append(String.format("<td>Created by :</td><td>%s</td>", about.getVendorId()));
                     }
                     sp.append("</tr>");
                     sp.append("<tr>");
                     {
-                        sp.append(String.format("<td>Created on:</td><td>%s</td>", about.getCreatedOn()));
+                        sp.append(String.format("<td>Created on :</td><td>%s</td>", about.getCreatedOn()));
                     }
                     sp.append("</tr>");
                     sp.append("<tr>");
                     {
-                        sp.append(String.format("<td>Build agent:</td><td>%s</td>", about.getCreatedBy()));
+                        sp.append(String.format("<td>Build agent :</td><td>%s</td>", about.getCreatedBy()));
                     }
                     sp.append("</tr>");
                     sp.append("<tr>");
                     {
-                        sp.append(String.format("<td>Build JDK:</td><td>%s</td>", about.getBuildJdk()));
+                        sp.append(String.format("<td>Build JDK :</td><td>%s</td>", about.getBuildJdk()));
                     }
                     sp.append("</tr>");
                 }
