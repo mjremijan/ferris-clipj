@@ -4,7 +4,7 @@
           xsi:schemaLocation="http://maven.apache.org/XDOC/2.0 http://maven.apache.org/xsd/xdoc-2.0.xsd">
 
     <properties>
-        <title>Ferris Mouser</title>
+        <title>Ferris ClipJ</title>
         <author email="mjremijan@yahoo.com">Michael Remijan</author>
     </properties>
 
@@ -17,8 +17,8 @@
     <body>
         <section name="">
             <div id="twStart">
-                <h2>Start Using Mouser</h2>
-                <span class="nav-header">Move the mouse</span>
+                <h2>Start Using ClipJ</h2>
+                <span class="nav-header">A Java-based clipboard history manager</span>
                 <a href="${project.scm.url}/releases/download/${project.build.finalName}/${project.build.finalName}-${ferrisWindowsAssemblyId}.zip">
                     <img src="images/windows-icon.png" />Download for Windows
                 </a>
@@ -31,17 +31,15 @@
 		
         <section name="About">
             <p>
-                The purpose of Mouser is to move the mouse automatically 
-                every minute.  It only moves the mouse by 2 pixels so you'll 
-                never notice it.
+                The purpose of ClipJ is to maintain a history of clipboard activity
+				so it's easy to go back to a previous clipboard item.  This is a 
+				Windows GUI application that runs in the Windows system tray.  Left-click
+				on the ClipJ icon in the Windows system tray to display a history of
+				clipboard items.  Double-click the ClipJ icon in the Windows system tray
+				for special functionality which copies to the clipboard any value 
+				you put in the <code>data/clipj-double-click.xml</code> file.
             </p>
-            <p> 
-                Why on the world would you ever need something like this?
-                Its primary purpose is to keep the screensaver from starting.
-                Sometimes, you are unable to change your screensaver/locking
-                preferences and you would like to prevent them from taking effect.
-                Mouser does this for you. 
-            </p>
+            
         </section>
     </body>
 </document>
