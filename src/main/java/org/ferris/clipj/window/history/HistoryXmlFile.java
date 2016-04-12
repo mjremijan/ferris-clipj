@@ -10,7 +10,7 @@ public class HistoryXmlFile extends File {
 
     @Inject
     public HistoryXmlFile(DataDirectory datadir) {
-        super(datadir, "history.xml");
+        super(datadir, "clipj-history.xml");
         if (! exists()) {
             throw new RuntimeException(String.format("The history xml data file does not exist \"%s\"", getAbsolutePath()));
         }

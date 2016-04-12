@@ -3,7 +3,7 @@ package org.ferris.clipj.window.tray;
 import java.awt.PopupMenu;
 import javax.inject.Inject;
 import org.apache.log4j.Logger;
-import org.ferris.clipj.window.menu.StringMenuItem;
+import org.ferris.clipj.window.history.HistoryMenuItem;
 
 /**
  *
@@ -23,10 +23,10 @@ public class TrayPopupMenu extends PopupMenu {
             remove(getItemCount() - 1);
         }
 
-        insert(new StringMenuItem((str)), 3);
+        insert(new HistoryMenuItem((str)), 3);
         
         for (int i = 3; i < getItemCount(); i++) {
-            StringMenuItem smi = (StringMenuItem)getItem(i);
+            HistoryMenuItem smi = (HistoryMenuItem)getItem(i);
             smi.setLabel(i - 2);
         }
     }

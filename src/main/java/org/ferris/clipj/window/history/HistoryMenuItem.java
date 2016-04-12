@@ -1,4 +1,4 @@
-package org.ferris.clipj.window.menu;
+package org.ferris.clipj.window.history;
 
 import java.awt.Font;
 import java.awt.MenuItem;
@@ -9,13 +9,13 @@ import java.awt.datatransfer.StringSelection;
  * 
  * @author Michael Remijan mjremijan@yahoo.com @mjremijan
  */
-public class StringMenuItem extends MenuItem {
+public class HistoryMenuItem extends MenuItem {
 
     private static final long serialVersionUID = 6379912347790948335L;
     private static final Font font = new Font("Courier",Font.PLAIN,12);
     private String str;
     
-    public StringMenuItem(String str) {
+    public HistoryMenuItem(String str) {
         super();
         this.str = str;
         setFont(font);

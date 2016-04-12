@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ When you double-click the application's system tray icon, the contents
+ of this file are read and automatically put onto the clipboard.
+-->
+<DoubleClick>
+    <Item>Double-click the system tray icon to put me on the clipboard</Item>
+</DoubleClick>
