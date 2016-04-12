@@ -12,7 +12,7 @@ Echo "%CD%"
 Echo. 
 
 Set PD=%~dp0..
-Set JAVA_BIN=%PD%\jre\bin\java.exe
+Set JAVA_BIN=%PD%\jre\bin\javaw.exe
 Echo JAVA BIN
 Echo ---------
 Echo "%JAVA_BIN%"
@@ -25,4 +25,4 @@ Echo.
 
 Echo START CLIPJ
 Echo -----------
-%JAVA_BIN% -jar %PD%\lib\${project.build.finalName}.jar
+start %JAVA_BIN% -jar %PD%\lib\${project.build.finalName}.jar
