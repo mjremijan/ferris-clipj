@@ -1,6 +1,7 @@
 package org.ferris.clipj.window.tray;
 
 import java.awt.PopupMenu;
+import javax.enterprise.inject.Instance;
 import javax.inject.Inject;
 import org.apache.log4j.Logger;
 import org.ferris.clipj.window.history.HistoryMenuItem;
@@ -14,6 +15,9 @@ public class TrayPopupMenu extends PopupMenu {
     @Inject
     protected Logger log;
     
+    @Inject
+    protected Instance<HistoryMenuItem> instance;
+    
     protected TrayPopupMenu() {
         super();
     }
@@ -23,7 +27,11 @@ public class TrayPopupMenu extends PopupMenu {
             remove(getItemCount() - 1);
         }
 
-        insert(new HistoryMenuItem((str)), 3);
+        HistoryMenuItem hmi 
+            = instance.get();
+        hmi.init(str);
+        
+        insert(hmi, 3);
         
         for (int i = 3; i < getItemCount(); i++) {
             HistoryMenuItem smi = (HistoryMenuItem)getItem(i);

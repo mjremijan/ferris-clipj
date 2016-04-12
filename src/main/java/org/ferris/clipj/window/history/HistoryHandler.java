@@ -50,7 +50,7 @@ public class HistoryHandler {
         }
     }   
     
-    public synchronized void addToHistory(String newHistoryItem) {
+    public synchronized void addToHistory(String newHistoryItemStr) {
         log.info("ENTER");
         
         try {
@@ -59,10 +59,13 @@ public class HistoryHandler {
 
             List<HistoryItem> items
                 = history.getItems();
+            
+            HistoryItem newHistoryItem
+                = new HistoryItem(newHistoryItemStr);
 
             if (!items.contains(newHistoryItem)) 
             {
-                items.add(0, new HistoryItem(newHistoryItem));        
+                items.add(0, newHistoryItem);        
             
                 if (items.size() > maxHistorySize) {            
                     items.remove(items.size() - 1);
@@ -79,7 +82,7 @@ public class HistoryHandler {
                 log.info(String.format("Marshalling %d itmes to history file %s", items.size(), historyXmlFile.getAbsolutePath()));
                 marshaller.marshal(history, historyXmlFile);
 
-                historyEvent.fire(new HistoryEvent(newHistoryItem));
+                historyEvent.fire(new HistoryEvent(newHistoryItem.getValue()));
             }
         } catch (JAXBException e) {
             throw new RuntimeException(e);

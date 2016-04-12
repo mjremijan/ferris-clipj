@@ -20,7 +20,7 @@ public class ClipboardTimerTask extends TimerTask {
 
     @Inject
     protected HistoryHandler historyHandler;
-
+    
     public ClipboardTimerTask() {
         clip = Toolkit.getDefaultToolkit().getSystemClipboard();
         if (clip == null) {
@@ -31,9 +31,10 @@ public class ClipboardTimerTask extends TimerTask {
     @Override
     public synchronized void run() {
         try {
+            
             Transferable contents
-                = clip.getContents(null);
-
+                = clip.getContents(null);            
+            
             if (contents != null) {
                 if (contents.isDataFlavorSupported(DataFlavor.stringFlavor)) {
                     String str

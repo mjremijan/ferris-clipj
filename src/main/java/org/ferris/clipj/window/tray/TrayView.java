@@ -71,8 +71,8 @@ public class TrayView {
             Toolkit.getDefaultToolkit()
                 .getSystemClipboard()
                 .setContents(
-                    new StringSelection(doubleClickHandler.getDoubleClick().getItem())
-                    , null
+                      new StringSelection(doubleClickHandler.getDoubleClick().getItem())
+                    , null 
                 );
             trayIcon.displayMessage("Double-click", "Item copied to clipboard", TrayIcon.MessageType.INFO);
         });
