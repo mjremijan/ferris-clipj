@@ -4,7 +4,7 @@
           xsi:schemaLocation="http://maven.apache.org/XDOC/2.0 http://maven.apache.org/xsd/xdoc-2.0.xsd">
 
     <properties>
-        <title>Ferris Mouser</title>
+        <title>Ferris ClipJ</title>
         <author email="mjremijan@yahoo.com">Michael Remijan</author>
     </properties>
 
@@ -14,7 +14,7 @@
                 <b>Windows</b>
             </p>
             <p>
-                Open a DOS prompt to the <code>[MOUSER_HOME]/bin/</code> directory.
+                Open a DOS prompt to the <code>/bin/</code> directory.
             </p>
             <p>
                 Execute <code>start_mouser.cmd</code>

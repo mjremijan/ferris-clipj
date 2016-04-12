@@ -27,7 +27,7 @@ public class AboutDialog extends JDialog
     private About about;
 
     /**
-	 * @param about
+	 * @param about The about data to be displayed
 	 */
 	public AboutDialog(About about) {
 		super((Frame)null);

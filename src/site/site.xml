@@ -34,7 +34,7 @@
         <menu name="Ferris ClipJ">
             <item name="About" href="index.html" />
             <item name="Installation" href="installation.html" />
-			<item name="Configuration" href="configuration" />
+            <item name="Configuration" href="configuration.html" />
             <item name="Running" href="running.html" />   
         </menu>
 

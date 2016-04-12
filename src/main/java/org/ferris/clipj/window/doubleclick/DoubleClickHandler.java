@@ -22,7 +22,8 @@ public class DoubleClickHandler {
     
     /**
      * 
-     * @return 
+     * @return Return the data from the clipj-double-click.xml file inside
+     * a {@link DoubleClick} object.
      */
     public synchronized DoubleClick getDoubleClick() {
         log.info("ENTER");

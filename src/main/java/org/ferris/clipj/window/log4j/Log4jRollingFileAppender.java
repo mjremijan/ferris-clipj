@@ -4,6 +4,7 @@ import java.io.File;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
+import org.apache.log4j.RollingFileAppender;
 
 /**
  * Extends {@link RollingFileAppender} to programmatically 

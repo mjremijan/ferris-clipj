@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document xmlns="http://maven.apache.org/XDOC/2.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/XDOC/2.0 http://maven.apache.org/xsd/xdoc-2.0.xsd">
+
+    <properties>
+        <title>Ferris ClipJ</title>
+        <author email="mjremijan@yahoo.com">Michael Remijan</author>
+    </properties>
+
+    <body>
+        <section name="Configuration">
+            <subsection name="Preferences" id="Preferences">
+                <p>
+                    Preferences are in the <code>${CLIPJ}/conf/preferences.properties</code> file. 
+                    Here are its options.
+                </p>
+                <source>
+#
+# The maximum number of clipboard items to maintain in history. Once
+# the maximum size is reached, new clipboard items will be added to 
+# the top and last one at the bottom will be dropped.
+MaxHistorySize=10</source> 
+            </subsection>
+            
+            <subsection name="Double-click" id="doubleclick">
+                <p>
+                    ClipJ has special functionality which copies to the clipboard any value 
+                    you put in the <code>${CLIPJ}/data/clipj-double-click.xml</code> file.
+                    So you can edit this file and a simple double-click on ClipJ will make
+                    it available on the clipboard.
+                </p>
+                <source>
+<![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ When you double-click the application's system tray icon, the contents
+ of this file are read and automatically put onto the clipboard.
+-->
+<DoubleClick>
+    <Item>Double-click the system tray icon to put me on the clipboard</Item>
+</DoubleClick>]]></source>
+            </subsection>
+            
+            <subsection name="Java JVM" id="javajvm">
+                <p>
+                    ClipJ requires Java 1.8+ and it comes with its own JVM in 
+                    the <code>${CLIPJ}/jre/</code> directory.  If you want to use 
+                    a different JVM, edit the  <code>${CLIPJ}/bin/start-clipj.cmd</code> 
+                    file and put in the location of your <code>javaw.exe</code>.
+                </p>
+                <source>
+Set JAVA_BIN=%PD%\jre\bin\javaw.exe
+Echo JAVA BIN
+Echo ---------
+Echo "%JAVA_BIN%"
+Echo.</source>   
+                <p>
+                    Configuration complete!  Next is <a href="running.html" alt="running">running the application</a>.
+                </p>
+            </subsection>
+        </section>
+    </body>
+</document>
