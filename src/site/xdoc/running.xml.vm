@@ -14,7 +14,7 @@
                 Open a DOS prompt to the <code>%CLIPJ%/bin/</code> directory.
             </p>
             <p>
-                Execute <code>start_clipj.cmd</code>
+                Execute <code>start-clipj.cmd</code>
             </p>
             <p>
                 The application will then start running in the background.  You'll
