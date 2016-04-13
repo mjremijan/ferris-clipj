@@ -12,11 +12,10 @@
         <section name="Configuration">
             <subsection name="Preferences" id="Preferences">
                 <p>
-                    Preferences are in the <code>${CLIPJ}/conf/preferences.properties</code> file. 
+                    Preferences are in the <code>%CLIPJ%/conf/preferences.properties</code> file. 
                     Here are its options.
                 </p>
                 <source>
-#
 # The maximum number of clipboard items to maintain in history. Once
 # the maximum size is reached, new clipboard items will be added to 
 # the top and last one at the bottom will be dropped.
@@ -26,7 +25,7 @@ MaxHistorySize=10</source>
             <subsection name="Double-click" id="doubleclick">
                 <p>
                     ClipJ has special functionality which copies to the clipboard any value 
-                    you put in the <code>${CLIPJ}/data/clipj-double-click.xml</code> file.
+                    you put in the <code>%CLIPJ%/data/clipj-double-click.xml</code> file.
                     So you can edit this file and a simple double-click on ClipJ will make
                     it available on the clipboard.
                 </p>
@@ -44,8 +43,8 @@ MaxHistorySize=10</source>
             <subsection name="Java JVM" id="javajvm">
                 <p>
                     ClipJ requires Java 1.8+ and it comes with its own JVM in 
-                    the <code>${CLIPJ}/jre/</code> directory.  If you want to use 
-                    a different JVM, edit the  <code>${CLIPJ}/bin/start-clipj.cmd</code> 
+                    the <code>%CLIPJ%/jre/</code> directory.  If you want to use 
+                    a different JVM, edit the  <code>%CLIPJ%/bin/start-clipj.cmd</code> 
                     file and put in the location of your <code>javaw.exe</code>.
                 </p>
                 <source>

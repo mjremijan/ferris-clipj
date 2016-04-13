@@ -37,9 +37,22 @@
                 on the ClipJ icon in the Windows system tray to display a history of
                 clipboard items.  Double-click the ClipJ icon in the Windows system tray
                 for special functionality which copies to the clipboard any value 
-                you put in the <code>${CLIPJ}/data/clipj-double-click.xml</code> file.
+                you put in the <code>%CLIPJ%/data/clipj-double-click.xml</code> file.
+            </p>            			
+        </section>
+		<section name="Screenshots">
+            <p>
+                ClipJ in the system tray				
             </p>
-            
+			<p>
+				<img src="images/clipj-in-the-system-tray.jpg" />
+			</p>
+            <p>
+                ClipJ showing clipboard history				
+            </p>
+			<p>
+				<img src="images/clipj-showing-clipboard-history.jpg" />
+			</p>			
         </section>
     </body>
 </document>

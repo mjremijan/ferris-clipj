@@ -11,9 +11,6 @@
     <body>
         <section name="Installation">
             <p>
-                <b>Windows</b>
-            </p>
-            <p>
                 Unzip <code>${project.build.finalName}-${ferrisWindowsAssemblyId}.zip</code>.
             </p>
             <p>

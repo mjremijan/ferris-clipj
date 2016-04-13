@@ -11,19 +11,18 @@
     <body>
         <section name="Running">
             <p>
-                <b>Windows</b>
+                Open a DOS prompt to the <code>%CLIPJ%/bin/</code> directory.
             </p>
             <p>
-                Open a DOS prompt to the <code>/bin/</code> directory.
+                Execute <code>start_clipj.cmd</code>
             </p>
             <p>
-                Execute <code>start_mouser.cmd</code>
+                The application will then start running in the background.  You'll
+				see the ClipJ icon in the system tray. You may need to edit which
+				icons are always visible in the system tray.
             </p>
             <p>
-                The application will then start running in the background.
-            </p>
-            <p>
-                Happy mouse moving!
+                Happy clipboarding!
             </p>
         </section>
     </body>
