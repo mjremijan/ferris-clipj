@@ -1,0 +1,15 @@
+org.ferris.clipj.window.about
+org.ferris.clipj.window.application
+org.ferris.clipj.window.clipboard
+org.ferris.clipj.window.configuration
+org.ferris.clipj.window.data
+org.ferris.clipj.window.doubleclick
+org.ferris.clipj.window.exception
+org.ferris.clipj.window.exit
+org.ferris.clipj.window.history
+org.ferris.clipj.window.image
+org.ferris.clipj.window.image.qualifier
+org.ferris.clipj.window.log4j
+org.ferris.clipj.window.main
+org.ferris.clipj.window.tray
+org.ferris.clipj.window.util
