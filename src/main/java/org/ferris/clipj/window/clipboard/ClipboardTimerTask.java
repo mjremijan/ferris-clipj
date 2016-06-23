@@ -55,10 +55,8 @@ public class ClipboardTimerTask extends TimerTask {
 //                        = (Image) contents.getTransferData(DataFlavor.imageFlavor);
 //                }
             }
-        } catch (IllegalStateException e) {
-            // Do nothing
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            // Do nothing
         }
 
     }
