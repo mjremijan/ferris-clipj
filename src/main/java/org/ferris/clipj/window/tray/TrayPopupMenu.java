@@ -4,6 +4,7 @@ import java.awt.PopupMenu;
 import javax.enterprise.inject.Instance;
 import javax.inject.Inject;
 import org.apache.log4j.Logger;
+import org.ferris.clipj.window.configuration.PreferenceKey;
 import org.ferris.clipj.window.history.HistoryMenuItem;
 
 /**
@@ -18,12 +19,15 @@ public class TrayPopupMenu extends PopupMenu {
     @Inject
     protected Instance<HistoryMenuItem> instance;
     
+    @Inject @PreferenceKey("MaxHistorySize")
+    protected Integer maxHistorySize;
+    
     protected TrayPopupMenu() {
         super();
     }
 
     public void addString(String str) {
-        if (getItemCount() == 13) {
+        if (getItemCount() == (maxHistorySize + 3)) {
             remove(getItemCount() - 1);
         }
 
