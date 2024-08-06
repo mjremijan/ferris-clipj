@@ -8,8 +8,8 @@ import static javax.xml.bind.JAXBContext.newInstance;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
-import org.apache.log4j.Logger;
 import org.ferris.clipj.window.configuration.PreferenceKey;
+import org.slf4j.Logger;
 
 
 /**

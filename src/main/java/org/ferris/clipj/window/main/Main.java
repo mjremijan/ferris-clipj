@@ -5,7 +5,7 @@ import java.util.List;
 import javax.enterprise.event.Event;
 import javax.enterprise.inject.spi.CDI;
 import javax.inject.Inject;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
 
 /**
  * The main() method for this application
@@ -13,7 +13,7 @@ import org.apache.log4j.Logger;
  * @author <a href="mailto:mjremijan@yahoo.com">Mike Remijan</a>
  */
 public class Main {
-    public static void main(String[] args) {
+      public static void main(String[] args) {
         CDI<Object> cdi = CDI.getCDIProvider().initialize();
         
         Main main

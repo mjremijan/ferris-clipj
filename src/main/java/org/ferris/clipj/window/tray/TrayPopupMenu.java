@@ -3,8 +3,8 @@ package org.ferris.clipj.window.tray;
 import java.awt.PopupMenu;
 import javax.enterprise.inject.Instance;
 import javax.inject.Inject;
-import org.apache.log4j.Logger;
 import org.ferris.clipj.window.history.HistoryMenuItem;
+import org.slf4j.Logger;
 
 /**
  *

@@ -8,13 +8,13 @@ import java.awt.datatransfer.StringSelection;
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
-import org.apache.log4j.Logger;
 import org.ferris.clipj.window.about.About;
 import org.ferris.clipj.window.about.AboutMenuItem;
 import org.ferris.clipj.window.doubleclick.DoubleClickHandler;
 import org.ferris.clipj.window.exit.ExitMenuItem;
 import org.ferris.clipj.window.history.History;
 import org.ferris.clipj.window.history.HistoryHandler;
+import org.slf4j.Logger;
 
 /**
  *

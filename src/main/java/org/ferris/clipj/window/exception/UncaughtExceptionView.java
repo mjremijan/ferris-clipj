@@ -4,7 +4,7 @@ import java.io.PrintWriter;
 import java.io.StringWriter;
 import javax.inject.Inject;
 import javax.swing.JOptionPane;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
 
 /**
  *
@@ -16,7 +16,7 @@ public class UncaughtExceptionView {
     protected Logger log;
 
     public void view(Throwable e) {
-        log.fatal(e.getMessage(), e);
+        log.error(e.getMessage(), e);
         StringWriter sw = new StringWriter();
         PrintWriter pw = new PrintWriter(sw);
         e.printStackTrace(pw);

@@ -2,11 +2,11 @@ package org.ferris.clipj.window.tray;
 
 import javax.enterprise.event.Observes;
 import javax.inject.Inject;
-import org.apache.log4j.Logger;
 import org.ferris.clipj.window.history.HistoryEvent;
 import org.ferris.clipj.window.main.StartupEvent;
 import static org.ferris.clipj.window.main.StartupEvent.STARTUP_GUI;
 import org.jboss.weld.experimental.Priority;
+import org.slf4j.Logger;
 
 
 /**

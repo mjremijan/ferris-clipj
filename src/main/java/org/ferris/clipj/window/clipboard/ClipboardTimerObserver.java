@@ -3,10 +3,10 @@ package org.ferris.clipj.window.clipboard;
 import java.util.Timer;
 import javax.enterprise.event.Observes;
 import javax.inject.Inject;
-import org.apache.log4j.Logger;
 import org.ferris.clipj.window.main.StartupEvent;
 import static org.ferris.clipj.window.main.StartupEvent.STARTUP_TIMER_TASK;
 import org.jboss.weld.experimental.Priority;
+import org.slf4j.Logger;
 
 /**
  *
