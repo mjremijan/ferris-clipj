@@ -24,10 +24,10 @@ MaxHistorySize=10</source>
             
             <subsection name="Double-click" id="doubleclick">
                 <p>
-                    ClipJ has special functionality which copies to the clipboard any value 
-                    you put in the <code>%CLIPJ%/data/clipj-double-click.xml</code> file.
-                    So you can edit this file and a simple double-click on ClipJ will make
-                    it available on the clipboard.
+                    ClipJ has special functionality. When you double-click on the
+                    ClipJ icon in the Windows taskbar, ClipJ will copy the value
+                    you put in the <code>%CLIPJ%/data/clipj-double-click.xml</code> file
+                    onto the clipboard. The XML file looks like this:                    
                 </p>
                 <source>
 <![CDATA[<?xml version="1.0" encoding="UTF-8"?>
@@ -38,6 +38,30 @@ MaxHistorySize=10</source>
 <DoubleClick>
     <Item>Double-click the system tray icon to put me on the clipboard</Item>
 </DoubleClick>]]></source>
+
+                <p>
+                    ClipJ comes with a file named <code>%CLIPJ%/data/clipj-double-click-template.xml</code>.
+                    You need to <b>COPY</b> this file and save it as 
+                    <code>%CLIPJ%/data/clipj-double-click.xml</code>. Put the value
+                    you want copied to the clipboard in this file only.
+                </p>
+                <p>
+                    When you double-click on the ClipJ icon in the Windows taskbar, 
+                    ClipJ will do the following:
+                </p>
+                <ol> 
+                    <li>Detect <code>%CLIPJ%/data/clipj-double-click.xml</code> exists</li>
+                    <li>Read the file contents</li>
+                    <li>Encrypt the file contents</li>
+                    <li>Write the encrypted file contents to <code>%CLIPJ%/data/clipj-double-click.bin</code></li>
+                    <li>Delete <code>%CLIPJ%/data/clipj-double-click.xml</code></li>
+                </ol>
+                <p>
+                    The <code>%CLIPJ%/data/clipj-double-click.xml</code> is automatically
+                    deleted for security reasons. You will need to create a new one 
+                    every time you want to change what ClipJ copies to the clipboard
+                    on double-click.
+                </p>
             </subsection>
             
             <subsection name="Java JVM" id="javajvm">

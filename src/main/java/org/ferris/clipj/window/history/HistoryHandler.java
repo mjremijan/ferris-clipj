@@ -1,6 +1,10 @@
 package org.ferris.clipj.window.history;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
 import java.util.List;
+import java.util.Optional;
 import javax.enterprise.event.Event;
 import javax.inject.Inject;
 import javax.xml.bind.JAXBContext;
@@ -9,6 +13,9 @@ import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 import org.ferris.clipj.window.configuration.PreferenceKey;
+import org.ferris.clipj.window.io.ByteArrayReader;
+import org.ferris.clipj.window.io.ByteArrayWriter;
+import org.ferris.clipj.window.security.Aes;
 import org.slf4j.Logger;
 
 
@@ -25,29 +32,26 @@ public class HistoryHandler {
     protected Event<HistoryEvent> historyEvent;
     
     @Inject
-    protected HistoryXmlFile historyXmlFile;
+    protected HistoryEncryptedFile historyEncryptedFile;
     
     @Inject @PreferenceKey("MaxHistorySize")
     protected Integer maxHistorySize;
     
+    @Inject
+    protected Aes aes;
+    
     public synchronized History getHistory() {
         log.info("ENTER");
         
-        try {
-            JAXBContext context
-                = newInstance(History.class);
+        log.info(String.format("Decrypting history file \"%s\"", historyEncryptedFile.getAbsolutePath()));
+        Optional<InputStream> decrypted
+            = decrypt();
 
-            Unmarshaller unmarshaller
-                = context.createUnmarshaller();
+        log.info("Unmarshal or create new history data");
+        History history 
+            = decrypted.map(is -> unmarshal(is)).orElseGet(() -> new History());       
 
-            log.info(String.format("Unmarshalling history file %s", historyXmlFile.getAbsolutePath()));
-            History history
-                = (History) unmarshaller.unmarshal(historyXmlFile);
-
-            return history;        
-        } catch (JAXBException e) {
-            throw new RuntimeException(e);
-        }
+        return history;  
     }   
     
     public synchronized void addToHistory(String newHistoryItemStr) {
@@ -79,13 +83,60 @@ public class HistoryHandler {
                 Marshaller marshaller = context.createMarshaller();
                 marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
 
-                log.info(String.format("Marshalling %d itmes to history file %s", items.size(), historyXmlFile.getAbsolutePath()));
-                marshaller.marshal(history, historyXmlFile);
+                log.info(String.format("Marshalling %d history items to byte array", items.size()));
+                ByteArrayOutputStream marshalledBytes = new ByteArrayOutputStream();
+                marshaller.marshal(history, marshalledBytes);
+                
+                log.info(String.format("Encrypting history items to \"%s\"", historyEncryptedFile.getAbsolutePath()));
+                new ByteArrayWriter(historyEncryptedFile.toPath())
+                    .write(aes.encrypt(
+                        marshalledBytes.toByteArray()
+                    )
+                );
 
                 historyEvent.fire(new HistoryEvent(newHistoryItem.getValue()));
             }
         } catch (JAXBException e) {
             throw new RuntimeException(e);
+        }
+    }
+    
+    protected History unmarshal(InputStream inputStream) {
+        log.info("ENTER");
+        try {
+            JAXBContext context
+                = newInstance(History.class);
+
+            Unmarshaller unmarshaller
+                = context.createUnmarshaller();
+            
+            log.info("Unmarshal history data");
+            return (History) unmarshaller.unmarshal(inputStream);
+        
+        } catch (JAXBException e) {
+            log.info("Problem unmarshalling history data, most likely corrupt data. Return new history");
+            return new History();
+        }
+    }
+    
+    
+    protected Optional<InputStream> decrypt() {
+        log.info("ENTER");
+        
+        if (!historyEncryptedFile.exists()) {
+            return Optional.empty();
+        } else {
+            log.info(String.format("Encrypted history file exists! \"%s\"", historyEncryptedFile.getAbsolutePath()));
+            try {
+                log.info(String.format("Read and decrpt \"%s\"", historyEncryptedFile.getAbsolutePath()));
+                return Optional.of(new ByteArrayInputStream(
+                    aes.decrypt(
+                        new ByteArrayReader(historyEncryptedFile.toPath()).read()
+                    )
+                ));
+            } catch (Exception e) {
+                throw new RuntimeException(String.format("Problem trying to read and decrypt \"%s\"", historyEncryptedFile.toString()), e);
+            }
         }
     }
 }
