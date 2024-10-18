@@ -14,7 +14,7 @@
                 Unzip <code>${project.build.finalName}-${ferrisWindowsAssemblyId}.zip</code>.
             </p>
             <p>
-                Installation complete!  Next is <a href="configuration.html" alt="configuration">configuration</a>
+                Installation complete!  Next is <a href="encryptionatrest.html" alt="encryptionatrest">encryption at rest</a>
             </p>
         </section>
     </body>

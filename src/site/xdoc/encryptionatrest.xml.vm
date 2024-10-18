@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document xmlns="http://maven.apache.org/XDOC/2.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/XDOC/2.0 http://maven.apache.org/xsd/xdoc-2.0.xsd">
+
+    <properties>
+        <title>Ferris ClipJ</title>
+        <author email="mjremijan@yahoo.com">Michael Remijan</author>
+    </properties>
+
+    <body>
+        <section name="Encryption at Rest">
+            <p>
+                All ClipJ data is encrypted before it is stored on disk. This is
+                obviously for security reasons.
+            </p>
+            <p>
+                The <code>%CLIPJ%/security/</code> directory contains a file
+                named <code>Aes256.key</code>. This file is automatically created
+                and managed by ClipJ
+            </p>
+            <p>
+                <b>DO NOT ALTER THIS FILE!</b>
+            </p>
+            <p>
+                If you alter the <code>Aes256.key</code> file or delete this file,
+                ClipJ will not be able to decrypt the clipboard history stored
+                in <code>%CLIPJ%/data/</code> directory.
+            </p>
+            <p>
+                To learn more about ClipJ's encryption at rest, go next to
+                <a href="configuration.html" alt="configuration">configuration</a>
+            </p>
+        </section>
+    </body>
+</document>
