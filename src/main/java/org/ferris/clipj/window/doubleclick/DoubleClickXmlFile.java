@@ -11,8 +11,5 @@ public class DoubleClickXmlFile extends File {
     @Inject
     public DoubleClickXmlFile(DataDirectory datadir) {
         super(datadir, "clipj-double-click.xml");
-        if (! exists()) {
-            throw new RuntimeException(String.format("The double-click xml data file does not exist \"%s\"", getAbsolutePath()));
-        }
     }
 }

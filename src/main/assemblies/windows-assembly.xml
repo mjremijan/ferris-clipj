@@ -50,6 +50,16 @@
         </fileSet>
         
         <fileSet>
+            <directory>src/main/assemblies/security</directory>
+            <outputDirectory>security</outputDirectory>
+            <excludes>
+                <exclude>**/*</exclude>
+            </excludes>
+            <filtered>false</filtered>
+            <lineEnding>windows</lineEnding>
+        </fileSet>
+        
+        <fileSet>
             <directory>target/site</directory>
             <outputDirectory>docs</outputDirectory>
             <includes>
@@ -58,7 +68,7 @@
         </fileSet>
         
         <fileSet>
-            <directory>src/main/assemblies/zulu1.8.0_60-8.9.0.4-win64/jre</directory>
+            <directory>src/main/assemblies/zulu8.72.0.17-ca-jdk8.0.382-win_i686/jre</directory>
             <outputDirectory>jre</outputDirectory>
             <includes>
                 <include>**</include>
