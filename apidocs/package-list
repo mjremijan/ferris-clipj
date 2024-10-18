@@ -9,7 +9,9 @@ org.ferris.clipj.window.exit
 org.ferris.clipj.window.history
 org.ferris.clipj.window.image
 org.ferris.clipj.window.image.qualifier
-org.ferris.clipj.window.log4j
+org.ferris.clipj.window.io
+org.ferris.clipj.window.logback
 org.ferris.clipj.window.main
+org.ferris.clipj.window.security
 org.ferris.clipj.window.tray
 org.ferris.clipj.window.util
