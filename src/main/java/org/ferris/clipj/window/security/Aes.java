@@ -27,14 +27,14 @@ public abstract class Aes {
     public static String MODE_OF_OPERATION = "GCM";
     //public static String PADDING_SCHEME = "PKCS5Padding";
     public static String PADDING_SCHEME = "NoPadding"; // switched to NoPadding for Zulu 8 JVM
-//    public static byte[] AAD; 
-//    static {
-//        try { 
-//            AAD = "fEris_cLIPj_AAD".getBytes("UTF-8");
-//        } catch (UnsupportedEncodingException e) {
-//            throw new RuntimeException(String.format("Problem getting the byte[] from the AAD string"), e);
-//        }
-//    }
+    public static byte[] AAD; 
+    static {
+        try { 
+            AAD = "fErRis_cLIPj_AaD".getBytes("UTF-8");
+        } catch (UnsupportedEncodingException e) {
+            throw new RuntimeException(String.format("Problem getting getting byte[] from the AAD string"), e);
+        }
+    }
     
     protected SecretKey secretKey;
     protected SecureRandom secureRandom;
@@ -63,7 +63,7 @@ public abstract class Aes {
             c.init(Cipher.ENCRYPT_MODE, secretKey, spec, secureRandom);
 
             // AAD
-            //c.updateAAD(AAD);
+            c.updateAAD(AAD);
 
             // I demonstrate 2 different ways of getting the
             // encrypted bytes. See the 2 sub-classes which
@@ -113,7 +113,7 @@ public abstract class Aes {
             c.init(Cipher.DECRYPT_MODE, secretKey, spec, secureRandom);
 
             // Add AAD tag data if present
-            //c.updateAAD(AAD);
+            c.updateAAD(AAD);
 
             // Add message to decrypt
             c.update(encryptedBytes);
