@@ -44,7 +44,7 @@ MaxHistorySize=10</source>
                     You need to <b>COPY</b> this file and save it as 
                     <code>%CLIPJ%/data/clipj-double-click.xml</code>. Put the value
                     you want copied to the clipboard in this file only.
-
+                </p>
                 <p>
                     When you double-click on the ClipJ icon in the Windows taskbar, 
                     ClipJ will do the following:
